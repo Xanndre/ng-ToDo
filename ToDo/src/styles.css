@@ -19,3 +19,8 @@
   color: #fff;
   top: 2px;
 }
+
+head,
+body {
+  font-family: "Roboto", sans-serif;
+}
