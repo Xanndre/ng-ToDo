@@ -12,4 +12,17 @@
       [ngClass]="customControl.class"
     />
   </ng-template>
+  <ng-template [ngIf]="customControl.controlType == 'textarea'">
+    <label [for]="customControl.formControlName" class="my-label text-muted">
+      {{ customControl.label }}
+    </label>
+    <textarea
+      class="form-control text-muted"
+      [formControlName]="customControl.formControlName"
+      [placeholder]="customControl.placeholder ? customControl.placeholder : ''"
+      [readOnly]="customControl.readonly"
+      [ngClass]="customControl.class"
+      [rows]="customControl.rows"
+    ></textarea>
+  </ng-template>
 </div>

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/models/Todo';
 import { TodoService } from 'src/app/services/Todo.service';
+import { TodoCreateForm } from './todo-create-form';
+import { TodoCreateControls } from './todo-create-controls';
+import { FormBuilder } from '@angular/forms';
+import { TodoCreated } from 'src/app/models/TodoCreated';
 
 @Component({
   selector: 'app-todo-list',
@@ -11,10 +15,16 @@ export class TodoListComponent implements OnInit {
 
   todos: Todo[];
   isTodosLoaded: boolean;
+  createdTodo: TodoCreated;
 
-  constructor(private todoService: TodoService) { }
+  createForm: TodoCreateForm = new TodoCreateForm();
+  formControls: TodoCreateControls = new TodoCreateControls();
+
+  constructor(private todoService: TodoService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.createForm.buildForm(this.formBuilder);
+    this.formControls.initializeControls(this.createForm);
     this.getUserTodos();
   }
 
@@ -29,6 +39,17 @@ export class TodoListComponent implements OnInit {
 
   deleteTodo(id: number) {
     this.todoService.deleteTodo(id).subscribe(() => {
+      this.getUserTodos();
+    });
+  }
+
+  createTodo() {
+    this.createdTodo = {
+      title: this.createForm.form.value.title,
+      description: this.createForm.form.value.description,
+      userId: localStorage.getItem('userId')
+    };
+    this.todoService.createTodo(this.createdTodo).subscribe(() => {
       this.getUserTodos();
     });
   }

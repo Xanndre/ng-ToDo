@@ -1,6 +1,25 @@
-<div *ngFor="let todo of todos">
-  <div>Tytuł: {{ todo.title }} Opis: {{ todo.description }}</div>
-  <button class="w-25 btn my-btn btn-block my-4" (click)="deleteTodo(todo.id)">
-    Usuń
+<form
+  class="text-center p-5"
+  [formGroup]="createForm.form"
+  (ngSubmit)="createTodo()"
+>
+  <app-custom-control
+    *ngFor="let control of formControls.controls"
+    [customControl]="control"
+  ></app-custom-control>
+  <button class="w-25 btn my-btn btn-block my-4" type="submit">
+    Dodaj zadanie
   </button>
+</form>
+
+<div *ngIf="isTodosLoaded">
+  <div *ngFor="let todo of todos">
+    <div>Tytuł: {{ todo.title }} Opis: {{ todo.description }}</div>
+    <button
+      class="w-25 btn my-btn btn-block my-4"
+      (click)="deleteTodo(todo.id)"
+    >
+      Usuń
+    </button>
+  </div>
 </div>
