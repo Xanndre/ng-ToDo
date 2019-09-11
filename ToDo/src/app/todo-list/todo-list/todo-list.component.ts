@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Todo } from 'src/app/models/Todo';
+import { TodoService } from 'src/app/services/Todo.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoListComponent implements OnInit {
 
-  constructor() { }
+  todos: Todo[];
+  isTodosLoaded: boolean;
+
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
+    this.getUserTodos();
+  }
+
+  getUserTodos() {
+    const username = localStorage.getItem('username');
+    this.todoService.getUserTodos(username).subscribe(response => {
+      this.todos = response;
+      console.log(this.todos);
+      this.isTodosLoaded = true;
+    });
+  }
+
+  deleteTodo(id: number) {
+    this.todoService.deleteTodo(id).subscribe(() => {
+      this.getUserTodos();
+    });
   }
 
 }
