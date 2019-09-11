@@ -37,7 +37,7 @@ export class LoginService {
 
   login(login: LoginData) {
     return this.client.post(
-      'https//localhost:44354/api/Account/Login',
+      'https://localhost:44354/api/Account/Login',
       login,
       {
         headers: new HttpHeaders({

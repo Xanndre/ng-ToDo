@@ -19,8 +19,7 @@ export class LoginControls {
         controlType: 'input',
         type: 'password',
         formControlName: 'password',
-        placeholder: 'Hasło',
-        class: 'mb-4'
+        placeholder: 'Hasło'
       }
 
     ];
