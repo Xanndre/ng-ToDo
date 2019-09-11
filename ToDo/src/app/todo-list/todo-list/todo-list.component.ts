@@ -51,6 +51,7 @@ export class TodoListComponent implements OnInit {
     };
     this.todoService.createTodo(this.createdTodo).subscribe(() => {
       this.getUserTodos();
+      this.createForm.form.reset();
     });
   }
 

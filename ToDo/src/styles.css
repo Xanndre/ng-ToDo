@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+.my-btn {
+  background-color: #006bbd;
+  box-shadow: 0 6px #014c85;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: inherit;
+  margin-bottom: 2rem;
+  outline: none;
+  position: relative;
+  transition: none;
+  vertical-align: middle;
+}
+
+.my-btn:hover {
+  box-shadow: 0 4px #014c85;
+  color: #fff;
+  top: 2px;
+}
