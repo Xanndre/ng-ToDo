@@ -4,15 +4,39 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { AccountModule } from './account/account.module';
+import { SharedModule } from './shared/shared.module';
+import { NavbarComponent } from './navbar/navbar.component';
+import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+export function getToken(): string {
+  return localStorage.getItem('token');
+}
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    AccountModule,
+    SharedModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: getToken
+      }
+    })
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [JwtHelperService],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

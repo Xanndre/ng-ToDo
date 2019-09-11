@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-sm navbar-custom ">
+  <a class="navbar-brand" [routerLink]="['/login']">TODO</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li
+        class="nav-item"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a class="nav-link" [routerLink]="['/todos']"
+          >Moje zadania<span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/create']">Dodaj zadanie</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button
+        *ngIf="!isUserAuthenticated()"
+        class="btn btn-outline-light my-2 my-sm-0"
+        type="submit"
+        [routerLink]="['/login']"
+      >
+        Zaloguj
+      </button>
+      <button
+        *ngIf="isUserAuthenticated()"
+        class="btn btn-outline-light my-2 my-sm-0"
+        type="submit"
+        (click)="logout()"
+        [routerLink]="['/login']"
+      >
+        Wyloguj
+      </button>
+    </form>
+  </div>
+</nav>

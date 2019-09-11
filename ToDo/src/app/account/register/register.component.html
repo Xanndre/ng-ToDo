@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-lg-4 mx-auto">
+    <h4 class="text-muted text-center mt-5 mb-0">
+      Utwórz nowe konto
+    </h4>
+    <form
+      class="text-center p-5"
+      [formGroup]="registerForm.form"
+      (ngSubmit)="register()"
+    >
+      <app-custom-control
+        *ngFor="let control of formControls.controls"
+        [customControl]="control"
+      ></app-custom-control>
+      <button
+        class="btn my-btn btn-block my-4"
+        type="submit"
+        [disabled]="!registerForm.form.valid"
+      >
+        Zarejestruj się
+      </button>
+      <div *ngIf="invalidRegistration" class="alert alert-danger">
+        Nieprawidłowa próba rejestracji.
+      </div>
+    </form>
+  </div>
+</div>
