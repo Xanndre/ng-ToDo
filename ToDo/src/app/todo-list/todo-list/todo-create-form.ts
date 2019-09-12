@@ -6,7 +6,7 @@ export class TodoCreateForm {
   buildForm(formBuilder: FormBuilder) {
     this.form = formBuilder.group({
       title: [null, Validators.required],
-      description: [null, Validators.required]
+      description: [null]
     });
   }
 

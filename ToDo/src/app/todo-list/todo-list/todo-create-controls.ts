@@ -11,8 +11,7 @@ export class TodoCreateControls {
         controlType: 'input',
         type: 'text',
         formControlName: 'title',
-        placeholder: 'Tytuł',
-        class: 'mb-4'
+        placeholder: 'Tytuł'
       },
       {
         formGroup: createForm.form,
@@ -20,7 +19,8 @@ export class TodoCreateControls {
         type: 'text',
         formControlName: 'description',
         placeholder: 'Opis',
-        rows: 5
+        rows: 5,
+        class: 'mt-4'
       }
 
     ];
