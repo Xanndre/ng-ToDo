@@ -5,6 +5,7 @@ import { TodoCreateForm } from './todo-create-form';
 import { TodoCreateControls } from './todo-create-controls';
 import { FormBuilder } from '@angular/forms';
 import { TodoCreated } from 'src/app/models/TodoCreated';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-todo-list',
@@ -20,7 +21,7 @@ export class TodoListComponent implements OnInit {
   createForm: TodoCreateForm = new TodoCreateForm();
   formControls: TodoCreateControls = new TodoCreateControls();
 
-  constructor(private todoService: TodoService, private formBuilder: FormBuilder) { }
+  constructor(private todoService: TodoService, private formBuilder: FormBuilder, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.createForm.buildForm(this.formBuilder);
@@ -53,6 +54,15 @@ export class TodoListComponent implements OnInit {
       this.getUserTodos();
       this.createForm.form.reset();
     });
+  }
+
+  openModal(content) {
+    this.modalService.open(content, { centered: true });
+  }
+
+  toggleModal() {
+    this.createTodo();
+    this.modalService.dismissAll();
   }
 
 }

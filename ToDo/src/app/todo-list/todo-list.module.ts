@@ -5,13 +5,19 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { AuthGuardService } from '../guards/AuthGuard.service';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   {
     path: 'todos',
     component: TodoListComponent,
     canActivate: [AuthGuardService]
-  }
+  },
+  {
+    path: '',
+    redirectTo: 'todos',
+    pathMatch: 'full'
+  },
 ];
 
 
@@ -23,6 +29,7 @@ const routes: Routes = [
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
+    NgbModule
   ],
   exports: [TodoListComponent]
 })
