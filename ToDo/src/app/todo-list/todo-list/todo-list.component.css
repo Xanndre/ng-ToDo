@@ -10,3 +10,19 @@
 .close {
   outline: none !important;
 }
+
+.col-first {
+  width: 5%;
+}
+
+.col-title {
+  width: 25%;
+}
+
+.col-button {
+  width: 20%;
+}
+
+.col-desc {
+  width: 50%;
+}

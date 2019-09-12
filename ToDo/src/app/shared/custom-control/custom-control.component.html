@@ -11,6 +11,11 @@
       [readOnly]="customControl.readonly"
       [ngClass]="customControl.class"
     />
+    <app-custom-error
+      [customControl]="
+        customControl.formGroup.get(customControl.formControlName)
+      "
+    ></app-custom-error>
   </ng-template>
   <ng-template [ngIf]="customControl.controlType == 'textarea'">
     <label [for]="customControl.formControlName" class="my-label text-muted">

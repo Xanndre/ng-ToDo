@@ -6,10 +6,14 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th scope="col" class="align-middle text-muted">#</th>
-        <th scope="col" class="align-middle text-muted">Tytuł</th>
-        <th scope="col" class="align-middle text-muted">Opis</th>
-        <th scope="col">
+        <th scope="col" class="align-middle text-muted col-first">#</th>
+        <th scope="col" class="align-middle text-muted col-title">
+          Tytuł
+        </th>
+        <th scope="col" class="align-middle text-muted col-desc">
+          Opis
+        </th>
+        <th scope="col" class="col-button">
           <button
             class="btn btn-success btn-block"
             (click)="openModal(content)"

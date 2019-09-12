@@ -11,8 +11,7 @@ export class RegisterControls {
         controlType: 'input',
         type: 'text',
         formControlName: 'username',
-        placeholder: 'Nazwa użytkownika',
-        class: 'mb-4'
+        placeholder: 'Nazwa użytkownika'
       },
       {
         formGroup: registerForm.form,
@@ -20,7 +19,7 @@ export class RegisterControls {
         type: 'text',
         formControlName: 'firstname',
         placeholder: 'Imię',
-        class: 'mb-4'
+        class: 'mt-4'
       },
       {
         formGroup: registerForm.form,
@@ -28,7 +27,7 @@ export class RegisterControls {
         type: 'text',
         formControlName: 'lastname',
         placeholder: 'Nazwisko',
-        class: 'mb-4'
+        class: 'mt-4'
       },
       {
         formGroup: registerForm.form,
@@ -36,14 +35,15 @@ export class RegisterControls {
         type: 'email',
         formControlName: 'email',
         placeholder: 'Email',
-        class: 'mb-4'
+        class: 'mt-4'
       },
       {
         formGroup: registerForm.form,
         controlType: 'input',
         type: 'password',
         formControlName: 'password',
-        placeholder: 'Hasło'
+        placeholder: 'Hasło',
+        class: 'mt-4'
       }
     ];
   }

@@ -6,7 +6,7 @@ export class LoginForm {
   buildForm(formBuilder: FormBuilder) {
     this.form = formBuilder.group({
       username: [null, Validators.required],
-      password: [null, [Validators.required, Validators.minLength(6)]]
+      password: [null, Validators.required]
     });
   }
 

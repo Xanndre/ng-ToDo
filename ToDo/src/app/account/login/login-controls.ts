@@ -11,15 +11,15 @@ export class LoginControls {
         controlType: 'input',
         type: 'text',
         formControlName: 'username',
-        placeholder: 'Nazwa użytkownika',
-        class: 'mb-4'
+        placeholder: 'Nazwa użytkownika'
       },
       {
         formGroup: loginForm.form,
         controlType: 'input',
         type: 'password',
         formControlName: 'password',
-        placeholder: 'Hasło'
+        placeholder: 'Hasło',
+        class: 'mt-4'
       }
 
     ];
