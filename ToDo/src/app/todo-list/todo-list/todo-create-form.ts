@@ -9,12 +9,4 @@ export class TodoCreateForm {
       description: [null]
     });
   }
-
-  get title() {
-    return this.form.get('title') as FormArray;
-  }
-
-  get description() {
-    return this.form.get('description') as FormArray;
-  }
 }

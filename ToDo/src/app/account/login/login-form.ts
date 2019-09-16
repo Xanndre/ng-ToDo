@@ -1,4 +1,4 @@
-import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 export class LoginForm {
   form: FormGroup;
@@ -9,12 +9,6 @@ export class LoginForm {
       password: [null, Validators.required]
     });
   }
-
-  get username() {
-    return this.form.get('username') as FormArray;
-  }
-
-  get password() {
-    return this.form.get('password') as FormArray;
-  }
 }
+
+

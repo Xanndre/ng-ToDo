@@ -25,23 +25,4 @@ export class RegisterForm {
     });
   }
 
-  get username() {
-    return this.form.get('username') as FormArray;
-  }
-
-  get firstname() {
-    return this.form.get('firstname') as FormArray;
-  }
-
-  get lastname() {
-    return this.form.get('lastname') as FormArray;
-  }
-
-  get password() {
-    return this.form.get('password') as FormArray;
-  }
-
-  get email() {
-    return this.form.get('email') as FormArray;
-  }
 }
